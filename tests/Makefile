@@ -1,6 +1,6 @@
 CC = gcc
 CPP = g++ -std=c++1y
-FLAGS = -Wall -O3 
+FLAGS = -Wall -O3 #-fPIC
 INCLUDE = ../include/upl
 
 
