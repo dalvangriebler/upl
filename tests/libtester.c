@@ -78,7 +78,6 @@ void test_all(){
 	printf("==== UPL-BEGIN -> UPL_getProcStatus ====\n");
 	printf("%s\n", dat);
 	printf("==== UPL-END -> UPL_getProcStatus ====\n");
-	free(dat);
 	
 	dat = UPL_getCommandResult("lscpu");
 	printf("==== UPL-BEGIN -> UPL_getlsCPU ====\n");
@@ -92,6 +91,9 @@ void test_all(){
 	
 
 	printf("UPL_getProcMemUsage %ld\n", UPL_getProcMemUsage());
+
+	printf("UPL_getProcMemUsage_pid %ld\n", UPL_getProcMemUsage_pid(UPL_getProcID()));
+
 
 	printf("UPL_getProcVoluntary_ctx_switches %ld\n", UPL_getProcVoluntary_ctx_switches());
 

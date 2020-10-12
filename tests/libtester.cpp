@@ -71,7 +71,7 @@ void test_all(){
 	std::cout << "UPL_getProcID " << UPL_getProcID() << std::endl;
 
 
-	char buff[256];
+/*	char buff[256];
 	sprintf(buff,"cat /proc/%ld/status",UPL_getProcID());
 
 	char *dat = UPL_getCommandResult(buff);
@@ -88,7 +88,7 @@ void test_all(){
 	std::cout << "==== UPL-BEGIN -> UPL_getNumaHardware ====" << std::endl;
 	std::cout << dat << std::endl;
 	std::cout << "==== UPL-END -> UPL_getNumaHardware ====" << std::endl;
-	
+*/	
 
 	std::cout << "UPL_getProcMemUsage " << UPL_getProcMemUsage() << std::endl;
 

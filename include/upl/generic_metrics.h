@@ -48,6 +48,8 @@
 #include <sys/stat.h>
 #include <sys/resource.h>
 #include <sys/sysinfo.h>
+#include <linux/unistd.h>       /* for _syscallX macros/related stuff */
+#include <linux/kernel.h>       /* for struct sysinfo */
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -62,6 +64,35 @@
 #include <sched.h>
 
 
+
+
+/** 
+ *  \brief data struct that contains /proc/[pid]/stat
+ *  https://man7.org/linux/man-pages/man5/proc.5.html
+ */
+struct proc_stat_t;
+
+/**
+ *  \brief Receives as argument a procces ID
+ * 	Valid: Returns a pointer to "struct proc_stat_t", which will contain all information about /proc/[pid]/stat.
+ *	Error: return 'NULL' .
+ */
+struct proc_stat_t * UPL_get_proc_stat(long int pid);
+
+/**
+ *  \brief Fuction to get the system uptime in seconds
+ * 	Valid: Returns the uptime in seconds.
+ *	Error: return '0.0' .
+ */
+double UPL_get_uptime();
+
+/**
+ *  \brief Fuction to get the load average of a given process ID
+ * 	Valid: Returns the process' CPU utilization in percentage
+ *	Error: Returns '0.0'
+ *	Warning: If your program has more threads, the utilization can be greater than 100
+ */
+double UPL_get_proc_load_average_now(long int pid);
 
 /** 
  *  \brief Returns the ID of the calling thread
